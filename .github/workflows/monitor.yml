@@ -1,0 +1,37 @@
+name: Monitor Greenland Choke Points
+
+on:
+  schedule:
+    # Every 15 minutes - focused monitoring uses fewer API calls
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install requests pandas folium
+      
+      - name: Run choke point monitor
+        env:
+          OPENSKY_USER: ${{ secrets.OPENSKY_USERNAME }}
+          OPENSKY_PASS: ${{ secrets.OPENSKY_PASSWORD }}
+        run: python greenland_chokepoints.py
+      
+      - name: Commit data
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Greenland Monitor"
+          git add -A
+          git diff --staged --quiet || git commit -m "🇬🇱 $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
