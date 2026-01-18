@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0f617f386d7d388941a252b03aec3bf7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; bottom: 50px; left: 50px; background: white; 
+                padding: 15px; border-radius: 5px; border: 2px solid gray; z-index: 9999; font-size: 12px;">
+        <b>Greenland Choke Points</b><br><br>
+        <b>Airports:</b><br>
+        🚨 <span style="color: red;">●</span> RED - Narsarsuaq (Mining Hub)<br>
+        🟡 <span style="color: orange;">●</span> YELLOW - Nuuk (Political)<br>
+        ⚪ <span style="color: gray;">●</span> LOW - Kangerlussuaq (Noise)<br><br>
+        <b>Traffic:</b><br>
+        <span style="color: darkred;">●</span> US/Canadian (Priority 1)<br>
+        <span style="color: blue;">●</span> European (Priority 2)<br>
+        <span style="color: purple;">●</span> Mining Project<br>
+        ⏱️ Extended ground stay (4+ hrs)
+    </div>
+    
+    <div style="position:fixed;top:10px;right:10px;background:white;padding:10px;border-radius:5px;border:1px solid gray;font-size:11px;"><b>Greenland Mining Intel</b><br>Updated: 2026-01-18 15:50 UTC</div>
+    
+            <div class="folium-map" id="map_0f617f386d7d388941a252b03aec3bf7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0f617f386d7d388941a252b03aec3bf7 = L.map(
+                "map_0f617f386d7d388941a252b03aec3bf7",
+                {
+                    center: [63.0, -48.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_095bae44a91d15a290f50109c890499f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_095bae44a91d15a290f50109c890499f.addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+            var circle_33711dc24cb19ddd9789452a164c4113 = L.circle(
+                [61.1605, -45.426],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 50000, "stroke": true, "weight": 3}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+        var popup_0118bef02ac8ac9ad46dff165f378660 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_de6538562295e42cfebb40e9a23781b4 = $(`<div id="html_de6538562295e42cfebb40e9a23781b4" style="width: 100.0%; height: 100.0%;">Monitoring radius: 50km</div>`)[0];
+                popup_0118bef02ac8ac9ad46dff165f378660.setContent(html_de6538562295e42cfebb40e9a23781b4);
+            
+        
+
+        circle_33711dc24cb19ddd9789452a164c4113.bindPopup(popup_0118bef02ac8ac9ad46dff165f378660)
+        ;
+
+        
+    
+    
+            var marker_865ea419fdca28a0e43293daf5761f27 = L.marker(
+                [61.1605, -45.426],
+                {
+}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+            var icon_ca2614c916bbc9a16e31cf2cf5a54cd8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_10e49b087c94e62921c59c56aef75192 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3575aeca320848036d62b753d0b10115 = $(`<div id="html_3575aeca320848036d62b753d0b10115" style="width: 100.0%; height: 100.0%;"><b>🚨 Narsarsuaq</b> (BGBW)<br>                      Signal: RED<br>                      Runway: 1830m<br>                      THE Mining Hub - Tanbreez, Kvanefjeld, Nalunaq, Amitsoq all nearby<br>                      <br>                      <b>Nearby projects:</b> Tanbreez, Kvanefjeld, Nalunaq, Amitsoq</div>`)[0];
+                popup_10e49b087c94e62921c59c56aef75192.setContent(html_3575aeca320848036d62b753d0b10115);
+            
+        
+
+        marker_865ea419fdca28a0e43293daf5761f27.bindPopup(popup_10e49b087c94e62921c59c56aef75192)
+        ;
+
+        
+    
+    
+                marker_865ea419fdca28a0e43293daf5761f27.setIcon(icon_ca2614c916bbc9a16e31cf2cf5a54cd8);
+            
+    
+            var circle_2e808ada5f6ae031ff09d9dcd482ef9d = L.circle(
+                [64.1909, -51.6781],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 40000, "stroke": true, "weight": 3}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+        var popup_d17084ad64e8c76a81061c8a3da1b413 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3850ee109fe08deafd8404cf1c7227d4 = $(`<div id="html_3850ee109fe08deafd8404cf1c7227d4" style="width: 100.0%; height: 100.0%;">Monitoring radius: 40km</div>`)[0];
+                popup_d17084ad64e8c76a81061c8a3da1b413.setContent(html_3850ee109fe08deafd8404cf1c7227d4);
+            
+        
+
+        circle_2e808ada5f6ae031ff09d9dcd482ef9d.bindPopup(popup_d17084ad64e8c76a81061c8a3da1b413)
+        ;
+
+        
+    
+    
+            var marker_dddd0aefc4e7df1f51d78c095b4604d8 = L.marker(
+                [64.1909, -51.6781],
+                {
+}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+            var icon_3ffff752cb9ca4ce26cf12b40acf6b3c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4476167eb7dd18ec3be424be4f6a3885 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e16ecc1850e18f8cc59ad18ecca55317 = $(`<div id="html_e16ecc1850e18f8cc59ad18ecca55317" style="width: 100.0%; height: 100.0%;"><b>🟡 Nuuk</b> (BGGH)<br>                      Signal: YELLOW<br>                      Runway: 2200m<br>                      Political Hub - diplomats, government, mining HQ meetings<br>                      <br>                      <b>Nearby projects:</b> West Greenland Hub</div>`)[0];
+                popup_4476167eb7dd18ec3be424be4f6a3885.setContent(html_e16ecc1850e18f8cc59ad18ecca55317);
+            
+        
+
+        marker_dddd0aefc4e7df1f51d78c095b4604d8.bindPopup(popup_4476167eb7dd18ec3be424be4f6a3885)
+        ;
+
+        
+    
+    
+                marker_dddd0aefc4e7df1f51d78c095b4604d8.setIcon(icon_3ffff752cb9ca4ce26cf12b40acf6b3c);
+            
+    
+            var circle_7aa3f365c1078a684a4d6ba2b456dc3c = L.circle(
+                [67.0122, -50.7116],
+                {"bubblingMouseEvents": true, "color": "gray", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "gray", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 40000, "stroke": true, "weight": 3}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+        var popup_c53542dd0b929ae09581824f4b8a4185 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c201ddfee2958a3dfafa66464cc872a9 = $(`<div id="html_c201ddfee2958a3dfafa66464cc872a9" style="width: 100.0%; height: 100.0%;">Monitoring radius: 40km</div>`)[0];
+                popup_c53542dd0b929ae09581824f4b8a4185.setContent(html_c201ddfee2958a3dfafa66464cc872a9);
+            
+        
+
+        circle_7aa3f365c1078a684a4d6ba2b456dc3c.bindPopup(popup_c53542dd0b929ae09581824f4b8a4185)
+        ;
+
+        
+    
+    
+            var marker_7fe2265a3c8d96233d9ee982175f0663 = L.marker(
+                [67.0122, -50.7116],
+                {
+}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+            var icon_cafa8eb20d211761caf344ea720a8b4c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "plane",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dd30c47f9889fd31b26962a908179fa6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe7992fad158dd40b37cd80622e572e6 = $(`<div id="html_fe7992fad158dd40b37cd80622e572e6" style="width: 100.0%; height: 100.0%;"><b>⚪ Kangerlussuaq</b> (BGSF)<br>                      Signal: LOW<br>                      Runway: 2810m<br>                      Old Hub - military, science, diversions. Less mining signal.<br>                      <br>                      <b>Nearby projects:</b> White Mountain</div>`)[0];
+                popup_dd30c47f9889fd31b26962a908179fa6.setContent(html_fe7992fad158dd40b37cd80622e572e6);
+            
+        
+
+        marker_7fe2265a3c8d96233d9ee982175f0663.bindPopup(popup_dd30c47f9889fd31b26962a908179fa6)
+        ;
+
+        
+    
+    
+                marker_7fe2265a3c8d96233d9ee982175f0663.setIcon(icon_cafa8eb20d211761caf344ea720a8b4c);
+            
+    
+            var circle_marker_51a7101c446dcedad944442bbf074a82 = L.circleMarker(
+                [60.95, -45.95],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+        var popup_2b41c12a1f503bbd2bac7aaa1a99914c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7616c7c3cb9e0b1b5fdc0adced21d435 = $(`<div id="html_7616c7c3cb9e0b1b5fdc0adced21d435" style="width: 100.0%; height: 100.0%;"><b>Tanbreez/Kringlerne</b><br>                      Critical Metals Corp (CRML)<br>                      REE, Zr, Nb<br>                      Nearest airport: BGBW</div>`)[0];
+                popup_2b41c12a1f503bbd2bac7aaa1a99914c.setContent(html_7616c7c3cb9e0b1b5fdc0adced21d435);
+            
+        
+
+        circle_marker_51a7101c446dcedad944442bbf074a82.bindPopup(popup_2b41c12a1f503bbd2bac7aaa1a99914c)
+        ;
+
+        
+    
+    
+            var circle_marker_ac467fe5dcafd3cbccbe1fa0efb74378 = L.circleMarker(
+                [60.98, -45.9],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+        var popup_0f22e08f94e4c72ab542a89ba2f48791 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b2e526e8fdf5447f1e2ce2453a3daea = $(`<div id="html_0b2e526e8fdf5447f1e2ce2453a3daea" style="width: 100.0%; height: 100.0%;"><b>Kvanefjeld</b><br>                      Energy Transition Minerals<br>                      REE (blocked - uranium)<br>                      Nearest airport: BGBW</div>`)[0];
+                popup_0f22e08f94e4c72ab542a89ba2f48791.setContent(html_0b2e526e8fdf5447f1e2ce2453a3daea);
+            
+        
+
+        circle_marker_ac467fe5dcafd3cbccbe1fa0efb74378.bindPopup(popup_0f22e08f94e4c72ab542a89ba2f48791)
+        ;
+
+        
+    
+    
+            var circle_marker_217891f919044c514d0aa3685be8fa11 = L.circleMarker(
+                [60.23, -44.8],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+        var popup_34dd1e245dbde799ec19f2c1a328066e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f567dc44be3b296bb2cb3a2caed783cf = $(`<div id="html_f567dc44be3b296bb2cb3a2caed783cf" style="width: 100.0%; height: 100.0%;"><b>Nalunaq Gold Mine</b><br>                      Amaroq Minerals (AMRQ)<br>                      Au<br>                      Nearest airport: BGBW</div>`)[0];
+                popup_34dd1e245dbde799ec19f2c1a328066e.setContent(html_f567dc44be3b296bb2cb3a2caed783cf);
+            
+        
+
+        circle_marker_217891f919044c514d0aa3685be8fa11.bindPopup(popup_34dd1e245dbde799ec19f2c1a328066e)
+        ;
+
+        
+    
+    
+            var circle_marker_137e3344f3abd3391ab2286b4ebf1582 = L.circleMarker(
+                [60.75, -45.4],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+        var popup_506e62c82d2be2ffffb128d0691bbb90 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_37d405a6be3cf0d05dd9d0575283be9e = $(`<div id="html_37d405a6be3cf0d05dd9d0575283be9e" style="width: 100.0%; height: 100.0%;"><b>Amitsoq Graphite</b><br>                      GreenRoc Mining<br>                      Graphite<br>                      Nearest airport: BGBW</div>`)[0];
+                popup_506e62c82d2be2ffffb128d0691bbb90.setContent(html_37d405a6be3cf0d05dd9d0575283be9e);
+            
+        
+
+        circle_marker_137e3344f3abd3391ab2286b4ebf1582.bindPopup(popup_506e62c82d2be2ffffb128d0691bbb90)
+        ;
+
+        
+    
+    
+            var circle_marker_b55fcef2cd0a7252a1bdf0bace7ea886 = L.circleMarker(
+                [64.2, -51.5],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_0f617f386d7d388941a252b03aec3bf7);
+        
+    
+        var popup_e809deb25110ee9ea9567f63380c3a26 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe833d5d6c43db858a69e1dae361003b = $(`<div id="html_fe833d5d6c43db858a69e1dae361003b" style="width: 100.0%; height: 100.0%;"><b>West Greenland Hub</b><br>                      Amaroq Minerals<br>                      Ge, Ga, Cu<br>                      Nearest airport: BGGH</div>`)[0];
+                popup_e809deb25110ee9ea9567f63380c3a26.setContent(html_fe833d5d6c43db858a69e1dae361003b);
+            
+        
+
+        circle_marker_b55fcef2cd0a7252a1bdf0bace7ea886.bindPopup(popup_e809deb25110ee9ea9567f63380c3a26)
+        ;
+
+        
+    
+</script>
+</html>
